@@ -79,8 +79,8 @@
 
 % Fonts
 \defaultfontfeatures{Mapping=tex-text}
-\setmainfont{IBM Plex Serif}
-\setmonofont{IBM Plex Mono}
+\setmainfont{DejaVu Serif}
+\setmonofont{DejaVu Sans Mono}
 
 % Chinese setup
 \ifdef{\@zh}{

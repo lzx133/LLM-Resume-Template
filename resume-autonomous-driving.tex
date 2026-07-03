@@ -1,0 +1,99 @@
+%% Automatic-driving algorithm expert resume.
+%% Derived from adongwanai/LLM-Resume-Template under CC BY 4.0.
+
+\documentclass[zh]{resume}
+
+\fileinfo{%
+  \faCopyright{} 2026, 楼振雄 \hspace{0.5em}
+  基于 \githublink{adongwanai}{LLM-Resume-Template} 修改 \hspace{0.5em}
+  \creativecommons{by}{4.0} \hspace{0.5em}
+  \faEdit{} \today
+}
+
+\name{振雄}{楼}
+\tagline{自动驾驶算法专家 \textbar{} 决策规划 · 轨迹优化 · 规划空间表达}
+\keywords{自动驾驶算法专家, 决策规划, 运动规划, 轨迹优化, 规划空间表达, QP, MPC}
+
+\profile{
+  \icontext{\faMapMarkerAlt}{杭州}
+  \university{华中科技大学}
+  \degree{机械工程 \textbullet{} 硕士}
+  \info{港口物流自动驾驶 \textbullet{} 多车型多港区交付}
+}
+
+\begin{document}
+\makeheader
+
+\begin{abstract}
+四年多港口物流自动驾驶算法研发经验，工作覆盖行为决策、实时轨迹优化、规划空间表达、车辆动力学与控制建模。长期承担规划核心模块的方案设计、代码实现、评审上线与问题闭环，主导或核心参与低参考线依赖行为搜索评估框架、实时 QP Path 优化器及规划语义空间重构。方案服务集卡、IGV 等多车型和 PSA、梅山、甬舟等项目，典型线上 Path 求解保持 10\,ms 量级、成功率 99.88\%。具备从问题建模、数值优化到车辆可执行性和现场交付的跨层视角。
+\end{abstract}
+
+\sectionTitle{专业技能}{\faWrench}
+\begin{itemize}
+  \item \textbf{决策规划}: 将复杂场景拆解为动作基元序列的零阶搜索评估问题，具备分治、采样、Monte Carlo 式随机搜索树展开/rollout、多目标代价设计与行为连续性处理经验。
+  \item \textbf{轨迹优化}: 熟悉 UTM/Frenet 表达、QP/SQP、样条与 Bezier 曲线、约束线性化、全车碰撞约束、跨帧迭代、初值与实时性优化。
+  \item \textbf{规划空间}: 关注进度偏序、局部横向可比、多值逆映射及物理空间回投，能够从定义域层面分析参考线投影和复杂拓扑问题。
+  \item \textbf{控制建模}: 具备车辆动力学、MPC、闭环模型、Kalman 状态辨识及 IGV 双轴控制经验，可从执行边界反推规划约束。
+  \item \textbf{工程能力}: 使用 C++、Python、Linux、Git 进行算法开发、仿真回放、日志分析和性能统计，具备多版本上线维护、代码评审及客户现场交付经验。
+\end{itemize}
+
+\sectionTitle{工作经历}{\faBriefcase}
+\begin{itemize}
+  \item \textbf{杭州飞步科技股份有限公司 \quad 自动驾驶算法工程师（规划/控制）} \hfill 2022.01 --- 至今
+  \begin{itemize}
+    \item 从车辆动力学与控制算法切入，逐步负责 Path 优化器、行为决策、Path decider 和规划空间表达等核心模块，形成规划、控制与车辆执行层的完整技术视角。
+    \item 负责或深度参与需求拆解、算法预研、框架设计、核心实现、Code Review、上线方案和长期维护；为动态障碍物绕行、参数辨识、高精度对位停车等任务提供方案指导。
+    \item 支撑多车型、多港区常态运营与新项目交付，参与 PSA 项目两周新加坡驻场调试并面向客户解释算法方案；连续多年获得团队最高档绩效评价。
+  \end{itemize}
+\end{itemize}
+
+\sectionTitle{代表项目}{\faCode}
+\begin{itemize}
+  \item \textbf{决策规划重构与规划空间表达：低参考线依赖的行为搜索评估框架} \hfill 2025.01 --- 至今
+  \begin{itemize}
+    \item \textbf{问题背景}: 原行为层依赖地图参考线和场景专用逻辑，选道、绕行和作业姿态调整扩展成本高；单值投影在回环、掉头和大曲率区域存在语义歧义。
+    \item \textbf{决策方法}: 将行为决策抽象为动作基元序列的零阶搜索评估问题；按引导结构分治，以 Monte Carlo 式随机搜索树执行候选序列展开/rollout，并保持跨段行为连续。
+    \item \textbf{采样评估}: 基于 Bezier、车道语义索引和配置模板覆盖选道、左右绕行、泊位姿态调整；融合类 SDF 安全距离、运动学可执行裕度、规则偏好和效率代价，单次评估约 0.1\,ms，单行为生成维持 ms 级。
+    \item \textbf{空间重构}: 提出以进度偏序、局部横向可比和多值逆映射为核心的规划语义空间，显式表达复杂拓扑歧义并保持物理空间可回投；初步验证投影耗时下降约 90\%，构造耗时下降约 50\%，支持障碍物一对多映射。
+    \item \textbf{工程结果}: 负责 Path decider 框架和求解器迁移，解耦决策层、问题定义域和数值求解层；重构版本支持 PSA 并上线主线，在梅山、甬舟开展常态化测试。
+  \end{itemize}
+
+  \newpage
+  \item \textbf{实时 QP Path 优化器：多车型多场景统一轨迹计算层} \hfill 2023.01 --- 2025.06
+  \begin{itemize}
+    \item \textbf{问题背景}: 传统 Frenet 方案对高阶平滑参考线依赖较强；非线性 whole-body 优化精度高但难以满足在线时延，需要兼顾复杂车体避障精度、实时性与工程鲁棒性。
+    \item \textbf{技术方案}: 主导低参考线依赖的 QP Path 优化器，在 UTM 坐标系内以参数样条为优化对象，将运动学和集卡/IGV 全车碰撞约束在初值附近线性化，并通过松弛与约束组合控制线性化残差。
+    \item \textbf{工程优化}: 引入碰撞预计算精度提升、前帧轨迹初值和跨帧收敛型迭代，结合约束降采样、矩阵前处理与轨迹复用，使典型线上平均耗时由 19.9\,ms 降至 13.4\,ms，并将横向可优化范围由约 2\,m 扩展至 6\,m 以上。
+    \item \textbf{可解释性}: 建立 debug、逐 box 碰撞分析和约束松弛诊断，将优化失败原因定位到障碍物 ID 与关键点，为决策层反馈和线上问题闭环提供依据。
+    \item \textbf{最终效果}: 统一支持静态绕行、倒车、变道、靠边停车和侧向避让等工况；全工况求解保持 10\,ms 量级，典型线上统计成功率 99.88\%（350014/350439）。
+  \end{itemize}
+
+  \item \textbf{动态障碍物横向避让：横纵向协同规划能力} \hfill 2025.01 --- 2025.12
+  \begin{itemize}
+    \item 基于横纵向耦合优化相关工作开展前期预研，推演算法在现有规划框架下的适用性与迭代求解特性，形成动态障碍物横向避让的整体方案。
+    \item 为开发提供算法设计建议，负责核心代码评审并制定测试关注项；功能稳定上线主线，为多车并行和复杂路口穿行提供可解释的横纵向联合避让能力。
+  \end{itemize}
+
+  \item \textbf{高维可行空间建模与 RRT 引导线搜索} \hfill 2022.06 --- 2023.01
+  \begin{itemize}
+    \item 将车辆位置、牵引车/挂车姿态和转向状态统一表示为高维可行空间，以转向增量序列作为决策变量，将采样校验问题转化为带碰撞和执行约束的搜索问题。
+    \item 基于 RRT 搭建搜索框架，以启发函数替代欧氏最近点并结合空间离散和 Bezier 模板加速；累计生成 63 条新参考线，无搜索失败且上线后未收到合理性问题反馈。
+  \end{itemize}
+
+  \item \textbf{车辆动力学、控制建模与新车型适配} \hfill 2022.01 --- 2024.12
+  \begin{itemize}
+    \item 建立半挂车动力学模型并分析数值发散机理，在 20\,ms 控制周期下保持稳定计算，支持 MPC 内置模型、状态观测与仿真校验；同车型横向控制误差由上一版本的 1\,m 量级降至 0.1\,m 量级。
+    \item 构建控制器闭环预测和性能分析工具，以分段线性映射解释控制输入输出边界；5\,m 前方位置预测误差由约 $\pm$0.3\,m 改善至约 $\pm$0.05\,m。
+    \item 支持 IGV 前后双轴控制和轮转角零偏辨识，实现楔形、八字、半八及双轴模式切换；典型全天数据横向误差不超过 0.1\,m，朝向误差不超过 0.03\,rad。
+    \item 参与 PSA 高精度对位停车、Dock Brake 及新底盘适配，在执行器特性差异较大时提供控制算法方案并完成现场调试。
+  \end{itemize}
+\end{itemize}
+
+\sectionTitle{教育与论文}{\faGraduationCap}
+\begin{itemize}
+  \item \textbf{华中科技大学 \quad 机械工程 \quad 硕士} \hfill 2018.09 --- 2021.06
+  \item \textbf{华中科技大学 \quad 机械工程 \quad 学士} \hfill 2014.09 --- 2018.06
+  \item \textbf{CCDC 2023}: 参与论文《Lateral Dynamic Model for Full-Size Semi-Trailer Container Trucks with Practical Evaluation》（非第一作者），参与半挂车横向动力学模型设计及宁波舟山港实车数据验证。
+\end{itemize}
+
+\end{document}
